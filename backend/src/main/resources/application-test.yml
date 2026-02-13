@@ -1,0 +1,38 @@
+spring:
+  config:
+    import:
+      - optional:file:.env.test.properties
+  datasource:
+    url: jdbc:mysql://localhost:3306/${MYSQL_TEST_DATABASE:mysql_test}
+    username: ${MYSQL_TEST_USER:${MYSQL_USER:root}}
+    password: ${MYSQL_TEST_PASSWORD:${MYSQL_PASSWORD:${MYSQL_ROOT_PASSWORD:rootpw}}}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      embedding:
+        options:
+          model: text-embedding-3-small
+  data:
+#    mongodb:
+#      uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@localhost:27017/${MONGO_TEST_DB:mongo_test}
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+
+  elasticsearch:
+    uris: http://localhost:9200
+    connection-timeout: 5s
+    socket-timeout: 10s
+logging:
+  level:
+    org.hibernate.sql: debug
+#    org.hibernate.orm.jdbc.bind: trace
