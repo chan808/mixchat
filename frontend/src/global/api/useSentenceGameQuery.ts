@@ -7,13 +7,14 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 
 type SentenceGameCountResp = components["schemas"]["SentenceGameCountResp"];
 type SentenceGameStartResp = components["schemas"]["SentenceGameStartResp"];
-type SentenceGameFeedback = {
+export type SentenceGameFeedback = {
   tag?: string;
   problem?: string;
   correction?: string;
   extra?: string;
 };
-type SentenceGameSubmitResp = components["schemas"]["SentenceGameSubmitResp"] & {
+export type SentenceGameSubmitReq = components["schemas"]["SentenceGameSubmitReq"];
+export type SentenceGameSubmitResp = components["schemas"]["SentenceGameSubmitResp"] & {
   feedbacks?: SentenceGameFeedback[];
 };
 
@@ -38,10 +39,9 @@ export const fetchStartGame = async (count: number) => {
 // -------------------------------
 // 🔥 3) 정답 제출
 // -------------------------------
-export const submitGameAnswer = async (body: {
-  sentenceGameId: number;
-  userAnswer: string;
-}) => {
+export const submitGameAnswer = async (
+  body: SentenceGameSubmitReq
+): Promise<SentenceGameSubmitResp> => {
   const res = await apiClient.POST("/api/v1/sentence-game/submit", {
     body,
   });
@@ -70,6 +70,6 @@ export const useStartGameQuery = (count: number) =>
 
 // 정답 제출 훅
 export const useSubmitAnswerMutation = () =>
-  useMutation({
+  useMutation<SentenceGameSubmitResp, Error, SentenceGameSubmitReq>({
     mutationFn: submitGameAnswer,
   });

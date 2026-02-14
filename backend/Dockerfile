@@ -19,6 +19,7 @@ RUN --mount=type=cache,target=/home/gradle/.gradle \
 # 전체 소스 복사 후 JAR 빌드
 # → -x test: 테스트는 CI workflow에서 별도로 돌리는 게 정석. 이미지 빌드는 빠르게.
 COPY . .
+RUN chmod +x gradlew
 RUN --mount=type=cache,target=/home/gradle/.gradle \
     ./gradlew --no-daemon clean bootJar -x test
 
