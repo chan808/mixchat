@@ -3,6 +3,7 @@
 import {
   useStartGameQuery,
   useSubmitAnswerMutation,
+  type SentenceGameFeedback,
 } from "@/global/api/useSentenceGameQuery";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
@@ -31,12 +32,7 @@ function MiniGamePlayContent() {
 
   type WrongItem = {
     question: typeof questions[number] & { correctedContent: string };
-    feedbacks: {
-      tag?: string;
-      problem?: string;
-      correction?: string;
-      extra?: string;
-    }[];
+    feedbacks: SentenceGameFeedback[];
   };
 
   const [wrongList, setWrongList] = useState<WrongItem[]>([]);
@@ -294,7 +290,7 @@ function MiniGamePlayContent() {
                     <p className="font-semibold text-[var(--text-primary)] mb-2">{t("miniGame.play.feedbackTitle")}</p>
 
                     <ul className="space-y-3">
-                      {submitMutation.data.feedbacks.map((fb, idx) => (
+                      {(submitMutation.data.feedbacks as SentenceGameFeedback[]).map((fb: SentenceGameFeedback, idx: number) => (
                         <li
                           key={idx}
                           className="theme-panel border rounded-md p-3 shadow-sm"
