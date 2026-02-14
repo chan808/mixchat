@@ -78,8 +78,8 @@ MixChat은 사용자 간의 실시간 채팅과 AI 기반의 다국어 번역 �
 ---
 
 ## 🧩 아키텍처
-<img src="./docs/images/architecture1.png" />
-<img src="./docs/images/architecture2.png" />
+<img src=".backend/docs/images/architecture1.png" />
+<img src=".backend/docs/images/architecture2.png" />
 
 ---
 
@@ -171,6 +171,8 @@ src/main/java/triplestar/mixchat
 ```
 
 ---
+
+## 🙋‍♂️ My Contributions
 
 ## ⚡ 성능·운영 개선 포인트
 - **메시지 Event-Driven 후처리**: `@TransactionalEventListener(AFTER_COMMIT)+@Async`로 번역/인덱싱/알림을 분리, API 응답 지연 감소.
