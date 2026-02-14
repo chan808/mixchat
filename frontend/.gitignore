@@ -40,6 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# openApi schema
-src/global/backend/schema.d.ts
-src/global/backend/openapi.json
