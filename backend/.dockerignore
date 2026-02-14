@@ -1,0 +1,9 @@
+# backend/.dockerignore
+.gradle
+build
+out
+.idea
+*.iml
+*.log
+**/src/test
+**/build
