@@ -5,9 +5,6 @@ spring:
     aws:
       region:
         static: ap-northeast-2
-  data:
-    mongodb:
-      uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/${MONGO_DB}?authSource=admin&minPoolSize=10&maxPoolSize=100&maxIdleTimeMS=60000
 
 cloud:
   aws:
