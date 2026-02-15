@@ -73,6 +73,7 @@ dependencies {
     // AWS SDK for S3
     implementation(platform("software.amazon.awssdk:bom:2.24.0"))
     implementation("software.amazon.awssdk:s3")
+    implementation("io.awspring.cloud:spring-cloud-aws-starter-secrets-manager:3.1.0")
 
     // Spring security
     implementation("org.springframework.boot:spring-boot-starter-security")
