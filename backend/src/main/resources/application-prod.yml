@@ -5,18 +5,18 @@ spring:
     aws:
       region:
         static: ap-northeast-2
+  data:
+    mongodb:
+      uri: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb:27017/${MONGO_DB}?authSource=admin&minPoolSize=10&maxPoolSize=100&maxIdleTimeMS=60000
 
 cloud:
   aws:
-    credentials:
-      access-key: ${AWS_ACCESS_KEY}
-      secret-key: ${AWS_SECRET_KEY}
     region:
       static: ${AWS_REGION}
     s3:
       bucket: ${AWS_S3_BUCKET}
-      endpoint: ${AWS_S3_ENDPOINT}
-      path-style-access: true
+      endpoint: https://s3.ap-northeast-2.amazonaws.com
+      path-style-access: false
 
 #   datasource:
 #     url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT:3306}/${MYSQL_DATABASE}
