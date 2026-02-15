@@ -28,7 +28,7 @@ spring:
 
   # RabbitMQ Configuration
   rabbitmq:
-    host: ${RABBITMQ_HOST:localhost}
+    host: ${RABBITMQ_HOST:rabbitmq}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASSWORD:guest}
@@ -39,7 +39,7 @@ spring:
         size: 10
     # STOMP Relay Configuration (for WebSocket multi-server support)
     stomp:
-      relay-host: ${RABBITMQ_STOMP_HOST:localhost}
+      relay-host: ${RABBITMQ_STOMP_HOST:rabbitmq}
       relay-port: ${RABBITMQ_STOMP_PORT:61613}
       client-login: ${RABBITMQ_STOMP_CLIENT_LOGIN:guest}
       client-passcode: ${RABBITMQ_STOMP_CLIENT_PASSCODE:guest}
