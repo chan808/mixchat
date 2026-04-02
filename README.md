@@ -62,10 +62,10 @@
   </tr>
   <tr>
     <!-- 역할 -->
-    <td align="center">FE / BE</td>
-    <td align="center">FE / BE</td>
-    <td align="center">FE / BE</td>
-    <td align="center">FE / BE</td>
+    <td align="center">회원</td>
+    <td align="center">채팅</td>
+    <td align="center">인프라</td>
+    <td align="center">미니게임</td>
   </tr>
 </table>
 
@@ -78,8 +78,8 @@ MixChat은 사용자 간의 실시간 채팅과 AI 기반의 다국어 번역 �
 ---
 
 ## 🧩 아키텍처
-<img src="./docs/images/architecture1.png" />
-<img src="./docs/images/architecture2.png" />
+<img src="./backend/docs/images/architecture1.png" />
+<img src="./backend/docs/images/architecture2.png" />
 
 ---
 
